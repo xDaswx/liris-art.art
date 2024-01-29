@@ -191,31 +191,39 @@ a {
 }
 
 
+@media screen and (max-width: 530px) {
+    .box {
+        scale: 0.8;
+    }
+}
+
 @media screen and (max-width: 331px) {
     .header-right, .header-left {
         display: none;
     }
 }
-@media screen and (max-width: 331px) {
-    .header-right, .header-left {
-        display: none;
+
+@media screen and (max-width: 781px) {
+    .things {
+        padding: 0px 18px 0px 18px;
     }
 }
 
-@media (min-width: 100px) {
-    .arts, .youtube-shorts, .youtube-videos { grid-template-columns: repeat(2, 1fr); }
-  }
 
-@media (min-width: 350px) {
-  .arts, .youtube-shorts, .youtube-videos { grid-template-columns: repeat(3, 1fr); }
+@media (min-width: 300px) {
+  .arts, .youtube-shorts, .youtube-videos { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (min-width: 620px) {
-    .arts, .youtube-shorts, .youtube-videos { grid-template-columns: repeat(4, 1fr); }
-  }
+@media (min-width: 550px) {
+    .arts, .youtube-shorts, .youtube-videos { grid-template-columns: repeat(3, 1fr); }
+}
 
-@media (min-width: 620px) {
+@media (min-width: 630px) {
   .arts, .youtube-shorts, .youtube-videos { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 661px) {
+    .arts, .youtube-shorts, .youtube-videos { grid-template-columns: repeat(4, 1fr); }
 }
 
 
@@ -224,8 +232,36 @@ a {
 #gameCanvas {
     display: block;
     margin: auto;
-    background: url('https://64.media.tumblr.com/d88c8a5e447784bd68bca3ae038776b1/158995d0a2f91369-6a/s540x810/c40a7672e21cf98f433c69dd3f5ae22a66427319.jpg');
+}
+
+.panel-col {
+    display: flex;
+    position: absolute;
+    height: 20px;
+    background-color: #ffbed6;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0px 0px 0px 3px #FF70A6, 0px 0px 0px 3px #FF70A6;
+    justify-content: flex-end;
+}
+
+
+.panel-col img {
+    height: 100%;
+}
+
+
+
+#canvaspanel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+    height: 100%;
+    max-height: 200px;
+    background-image: url('https://64.media.tumblr.com/d88c8a5e447784bd68bca3ae038776b1/158995d0a2f91369-6a/s540x810/c40a7672e21cf98f433c69dd3f5ae22a66427319.jpg');
     background-position: bottom;
+    background-size: cover;
     image-rendering: pixelated;
-    border: 1px solid black;
+    box-shadow: 0px 0px 0px 3px #FF70A6, 0px 0px 0px 6px #ffbed6, 0px 0px 0px 9px #FF70A6;
 }

@@ -87,7 +87,15 @@
       display: flex;
       justify-content: center;
   ">
-         <canvas  width=2500   height=1000 style = 'width: 100%;max-width: 500px;height: 100%;max-height: 200px;'  id='gameCanvas'>  </canvas>
+  <div class="canvas-background" id="canvaspanel">
+   <div class="panel-col">
+      <img src="resources/imgs/heart.png" alt="" class="heart">
+      <img src="resources/imgs/heart.png" alt="" class="heart">
+      <img src="resources/imgs/heart.png" alt="" class="heart">
+
+   </div>
+   <canvas  width=2500   height=1000 style = 'width: 100%;max-width: 500px;height: 100%;max-height: 200px;'  id='gameCanvas'>  </canvas>
+  </div>
          <div id="npcProperties" style="scale: 0.9;display: none;border-radius: 20px;flex-direction: inherit;justify-content: revert-layer;padding: 12px;background-color: crimson;">
             <h2>debug cats</h2>
             <table id="propertiesTable">
