@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Dinomouse;
+    src: url("./../resources/fonts/rainyhearts.otf") format("opentype");
+}
+
+header {
+    position: fixed;
+    text-align: center;
+    z-index: 999;
+    width: 100%;
+    background-color: white;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    /* background-color: bisque; */
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content{
+    display: flex;
+    gap: 30px;
+}
+
+a {
+    font-family: 'Dinomouse';
+    font-size: 25px;
+    color: #FF70A6;
+}
+
+.button {
+    height: 27px;
+    text-align: center;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 2px solid #ff70a6;
+    padding: 0px 10px 0px;
+    border-bottom: 3px solid currentColor;
+    font-size: 20px;
+}
+
+.main {
+    background-color: #cc00ff17;
+}
+
+.about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    text-align: center;
+    height: 240px;
+    font-family: 'Dinomouse';
+    font-size: 15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.things{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Dinomouse';
+    font-size: 15px;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.about h1{
+    font-weight: 400;
+    font-size: 25px;
+    color: #505050;
+}
+.texts{
+    width: 450px; 
+}
+
+.title {
+    width: 100%;
+    max-width: 720px;
+}
+
+.things-title {
+    margin-top: 20px;
+    height: 20px;
+    text-align: left;
+    color: #f495bf;
+}
+
+.title-line{
+    background-color: #f786f8;
+    height: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+.shorts-yt-panel {
+    cursor: pointer;
+    width: 100%;
+    max-width: 171px;
+    background-color: #fff;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.shorts-yt-title {
+    text-align: left;
+    font-size: 19px;
+    font-weight: 200;
+}
+
+.shorts-yt-image {
+    height: 150px;
+    /* width: 100%; */
+    /* max-width: 160px; */
+    background-color: aqua;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.shorts-yt-desc{
+    color:#9C8E8E;
+    text-align: center;
+    font-size: 14px;
+}
+.shorts-texts {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    align-items: stretch;
+}
+
+
+.arts, .youtube-shorts, .youtube-videos, .youtube-videos {
+    display: grid;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+.art-panel {
+    width: 100%;
+    max-width: 171px;
+    background-color: #fff;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.art-title {
+    text-align: left;
+    font-size: 19px;
+    font-weight: 200;
+}
+
+.art-image {
+    height: 150px;
+    /* width: 100%; */
+    /* max-width: 160px; */
+    background-color: aqua;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.img-source {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.art-desc{
+    color:#9C8E8E;
+    text-align: left;
+}
+
+
+@media screen and (max-width: 331px) {
+    .header-right, .header-left {
+        display: none;
+    }
+}
+@media screen and (max-width: 331px) {
+    .header-right, .header-left {
+        display: none;
+    }
+}
+
+@media (min-width: 100px) {
+    .arts, .youtube-shorts, .youtube-videos { grid-template-columns: repeat(2, 1fr); }
+  }
+
+@media (min-width: 350px) {
+  .arts, .youtube-shorts, .youtube-videos { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 620px) {
+    .arts, .youtube-shorts, .youtube-videos { grid-template-columns: repeat(4, 1fr); }
+  }
+
+@media (min-width: 620px) {
+  .arts, .youtube-shorts, .youtube-videos { grid-template-columns: repeat(4, 1fr); }
+}
+
+
+
+
+#gameCanvas {
+    display: block;
+    margin: auto;
+    background: url('https://64.media.tumblr.com/d88c8a5e447784bd68bca3ae038776b1/158995d0a2f91369-6a/s540x810/c40a7672e21cf98f433c69dd3f5ae22a66427319.jpg');
+    background-position: bottom;
+    image-rendering: pixelated;
+    border: 1px solid black;
+}

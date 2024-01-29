@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Liris-art</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/yt-styles.css">
+    <link rel="stylesheet" href="styles/external-animations.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header>
+       <div class="header-content">
+         <div class="header-right">
+            <a href="" class="button">test#1</a>
+         </div>
+         <div class="title"><a>Liris-art</a></div>
+         <div class="header-left">
+            <a href="" class="button">button#1<</a>
+         </div>
+       </div>
+    </header>
+    <div class="main">
+       <section class="about">
+          <div class="texts" style="
+             width: 650px;
+             ">
+             <h1 style="
+                color: #f495bf;
+                font-size: 45px;
+                margin: 15px 0 15px 0;
+                ">Welcome 🌺</h1>
+             <h1>Let me serenade you with my voice and enchant you with my art</h1>
+             <p style="
+                color: #787878;
+                ">My obsessions: vocaloid, pjsk, VNs, JRPGs, somnium files, obscure ps2 horror games, drakengard, bustafellows</p>
+          </div>
+       </section>
+       <!-- <div id="inner" style="
+          background-image: url('https://64.media.tumblr.com/d88c8a5e447784bd68bca3ae038776b1/158995d0a2f91369-6a/s540x810/c40a7672e21cf98f433c69dd3f5ae22a66427319.jpg');
+          background-position: bottom;
+          ">
+          <div id="platform">
+            <h1  class="friend-username"  style="
+    font-size: 10px;
+    margin-bottom: 20px;
+    height: 2px;
+">julie 000</h1>
+             <div id="pot">
+                <img class="hello-kitty" src="https://i.pinimg.com/originals/0d/5d/3d/0d5d3d28f50d56155150c36578460730.gif" style="
+                   width: 31px;
+                   ">
+             </div>
+          </div>
+       </div> -->
+      <div class="box" style="
+      display: flex;
+      justify-content: center;
+  ">
+         <canvas  width=2500   height=1000 style = 'width: 100%;max-width: 500px;height: 100%;max-height: 200px;'  id='gameCanvas'>  </canvas>
+         <div id="npcProperties" style="scale: 0.9;display: none;border-radius: 20px;flex-direction: inherit;justify-content: revert-layer;padding: 12px;background-color: crimson;">
+            <h2>debug cats</h2>
+            <table id="propertiesTable">
+            </table>
+            <button onclick="saveChanges()">save</button>
+            <button onclick="createCat()">create</button>
+            <table id="creationcatTable"><tbody><tr><td>x:</td><td><input type="text" id="editx" value="1074.7456261704963"></td></tr><tr><td>y:</td><td><input type="text" id="edity" value="650"></td></tr><tr><td>size:</td><td><input type="text" id="editsize" value="200"></td></tr><tr><td>speed:</td><td><input type="text" id="editspeed" value="2.3"></td></tr><tr><td>direction:</td><td><input type="text" id="editdirection" value="1"></td></tr><tr><td>frameIndex:</td><td><input type="text" id="editframeIndex" value="3"></td></tr><tr><td>framesPerRow:</td><td><input type="text" id="editframesPerRow" value="4"></td></tr><tr><td>frameRate:</td><td><input type="text" id="editframeRate" value="7"></td></tr><tr><td>frameCount:</td><td><input type="text" id="editframeCount" value="82"></td></tr><tr><td>spriteWidth:</td><td><input type="text" id="editspriteWidth" value="500"></td></tr><tr><td>spriteHeight:</td><td><input type="text" id="editspriteHeight" value="500"></td></tr><tr><td>facingRight:</td><td><input type="text" id="editfacingRight" value="false"></td></tr><tr><td>image:</td><td><input type="text" id="editimage" value="[object HTMLImageElement]"></td></tr><tr><td>username:</td><td><input type="text" id="editusername" value="Azury"></td></tr></tbody></table>
+          </div>
+      </div>
+
+       <section class="things">
+        <div class="title">
+         <h1 class="things-title">Shorts Content</h1>
+         <div class="title-line"></div>
+        </div>
+        <div class="youtube-content">
+
+
+         <div class="youtube-shorts">
+
+         </div>
+         <div class="title">
+            <h1 class="things-title">Videos Content</h1>
+            <div class="title-line"></div>
+           </div>
+         <div class="youtube-videos">
+
+         </div>
+
+        </div>
+        <div class="title">
+         <h1 class="things-title">aaaaaaaaaaaa Content</h1>
+         <div class="title-line"></div>
+        </div>
+        <div class="arts">
+            
+        </div>
+       </section>
+
+
+
+    </div>
+    <script src="dasw-canvas.js" async defer></script>
+    <script src="script.js" async defer></script>
+ </body>
+
+</html>
