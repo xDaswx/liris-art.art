@@ -239,6 +239,35 @@
     height: 2em;
   }
 
+
+@media screen and (max-width: 623px) {
+    .music-order {
+        display: none;
+    }
+    .music-bar {
+      width: 100px;
+  }
+}
+
+@media screen and (max-width: 437px) {
+  .music-bar {
+    width: 50px;
+}
+.music-time__last{
+  display: none;
+}
+}
+
+@media screen and (max-width: 355px) {
+  .music-player__title {
+    font-size: 9px;
+}
+.music-bar{
+  display: none;
+}
+}
+
+
   
   /* @media all and (max-width: 960px) {
     .c-containter {
