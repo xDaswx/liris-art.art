@@ -9,10 +9,15 @@
     padding: 30px;
     /* height: 65%; */
     text-align: center;
+    min-height: 150px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .yt-content-information p {
-    overflow: hidden; 
+    overflow: hidden;
+    max-width: 150px;
 }
 .shorts-yt-panel{
     transition: all .3s ease-in-out;
@@ -31,7 +36,7 @@
 
 .shorts-yt-panel:hover > .yt-content-information {
     position: fixed;
-    display: block;
+    display: flex;
     margin-top: -111px;
     background-color: #fff;
     border-radius: 5px;

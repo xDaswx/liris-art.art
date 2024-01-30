@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/yt-styles.css">
     <link rel="stylesheet" href="styles/external-animations.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/external-music-player.css">
 </head>
 
 <body>
@@ -50,6 +50,69 @@
          </div>
        </div>
     </header>
+
+<!-- music player external edited by dasw -->
+<div class="dwsplayer-container">
+
+<div class="music-player-panel">
+
+        <div class="mplayer-buttons">
+
+            <div style="display:flex">
+                <div class="music-control__backward" id="prev">
+                    <img src="https://snowleo208.github.io/100-Days-of-Code/7.%20Music%20Player/img/backward.svg" alt="prev">
+                </div>
+                <div class="music-control__play" id="play">
+                    <img src="https://snowleo208.github.io/100-Days-of-Code/7.%20Music%20Player/img/play.svg" alt="Play" class="play">
+                </div>
+                <div class="music-control__forward" id="next">
+                    <img src="https://snowleo208.github.io/100-Days-of-Code/7.%20Music%20Player/img/forward.svg" alt="next">
+                </div>
+            </div>
+            <div class="music-order">
+                <div class="music-order__loop is-loop" id="loop">
+                    <img src="https://snowleo208.github.io/100-Days-of-Code/7.%20Music%20Player/img/loop.svg" alt="Loop music">
+                </div>
+            </div>
+    
+        </div>
+        <div class="mplayer-timeline">
+            <p class="music-time__current"></p>
+            <div class="music-bar" id="progress">
+                <div id="length"></div>
+            </div>
+            <p class="music-time__last"></p>
+        </div>
+        <div class="music-order" id="volume-music">
+            <div class="volume-trigger">
+                <div class="music-order__volume-change" >
+
+                        <input class="volume-input" type="range" min="0" max="10">
+
+                </div>
+            </div>
+
+            <div class="music-order__volume" id="volume">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZmlsbD0iIzMzMyIgZD0iTTQgOWg0LjAwMkwxMiA1djE0Yy0yLjQ0Ni0yLjY2Ny0zLjc3OC00LTMuOTk4LTRINFY5em0xMCA0YTEgMSAwIDAgMCAwLTJWOWEzIDMgMCAwIDEgMCA2di0yem0wIDRhNSA1IDAgMCAwIDAtMTBWNWE3IDcgMCAwIDEgMCAxNHYtMnoiLz48L3N2Zz4K" alt="Loop music">
+            </div>
+        </div>
+        <div class="mplayer-mplayer-info">
+            <div class="album-cover">
+                  
+                <img src="https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" class="cover" alt="From One To Nine by Marcel Pequel">
+                
+    
+            </div>
+            <div class="music-player">
+                <h2 class="music-player__author"></h2>
+                <h1 class="music-player__title"></h1>
+            </div>
+
+    </div>
+</div>
+</div>
+
+<!-- music player external by dasw finish-->
     <div class="main">
        <section class="about">
           <div class="texts" style="
@@ -140,6 +203,7 @@
     </div>
     <script src="dasw-canvas.js" async defer></script>
     <script src="script.js" async defer></script>
+    <script src="music-player.js" async defer></script>
  </body>
 
 </html>
