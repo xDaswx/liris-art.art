@@ -46,12 +46,13 @@ fetch('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxR
         console.log(el)
         let div = document.createElement('div')
         div.classList.add('shorts-yt-panel')
-        let desc = el.snippet.description.substring(0,400);
+        let desc = el.snippet.description.substring(0,80);
         div.innerHTML = `
         <div class="yt-content-information">
-        <p>${desc}<br> ...(Click to see in YT)</p>
+        <img class="flower" src="https://cdn130.picsart.com/287898924016211.png?r1024x1024">
+        <p>${desc}...<br><br><a class="button" style="font-size:15px">Click to watch</a></p>        
         </div>
-        <div class="shorts-yt-image">
+        <div class="youtube-yt-image">
         <img src="${el.snippet.thumbnails.high.url}" alt="" class="img-source">
       </div>
       
@@ -79,12 +80,12 @@ fetch('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxR
         div.classList.add('shorts-yt-panel')
         var regexp = /#\S+/g;
         postText = el.snippet.title.replace(regexp, '');
-        let desc = el.snippet.description.substring(0,400);
+        let desc = el.snippet.description.substring(0,80);
 
 
         div.innerHTML = `<div class="yt-content-information">
         <img class="flower" src="https://cdn130.picsart.com/287898924016211.png?r1024x1024">
-        <p>${desc}<br> ...(Click to see in YT)</p>
+        <p>${desc}...<br><br><a class="button" style="font-size:15px">Click to watch</a></p>
         </div>
         <div class="shorts-yt-image">
         <img src="${el.snippet.thumbnails.standard.url}" alt="" class="img-source">
