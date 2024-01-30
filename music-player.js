@@ -1,20 +1,20 @@
 // referencia e creditos https://codepen.io/snowleo208/pen/zJMqog
 
+const localhost = location.href;
+
 
 (function IIFE() {
     const list = [
     {
       id: 1,
-      url:
-      "http://127.0.0.1:5500/resources/sounds/Attack%20Of%20The%20Sloth.mp3",
+      url: localhost+"resources/sounds/Attack%20Of%20The%20Sloth.mp3",
       author: "Liris from Mars",
       title: "Attack Of The Sloth",
       cover:"https://i1.sndcdn.com/artworks-000191282124-a8vzhc-t50x50.jpg" 
     },
     {
         id: 2,
-        url:
-        "http://127.0.0.1:5500/resources/sounds/Estasia Ft Starrlight - My Turn (Official Preview TSR023).mp3",
+        url:localhost+"resources/sounds/Estasia Ft Starrlight - My Turn (Official Preview TSR023).mp3",
         author: "Liris",
         title: "Liris Ft Starrlight - My Turn (Official Preview TSR023)",
         cover:"https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" 
