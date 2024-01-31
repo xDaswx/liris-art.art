@@ -47,10 +47,13 @@ fetch('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxR
         let div = document.createElement('div')
         div.classList.add('shorts-yt-panel')
         let desc = el.snippet.description.substring(0,80);
+        const dataEntrada = new Date(el.snippet.publishedAt);
+        const dateFormat = { year: 'numeric', month: 'short', day: 'numeric' };
+        const date = dataEntrada.toLocaleDateString('en-US', dateFormat);
         div.innerHTML = `
         <div class="yt-content-information">
         <img class="flower" src="https://cdn130.picsart.com/287898924016211.png?r1024x1024">
-        <p>${desc}...<br><br><a class="button" style="font-size:15px">Click to watch</a></p>        
+        <p>${desc}...<br><br><a class="button" target="_blank" href="https://www.youtube.com/watch?v=${el.snippet.resourceId.videoId}" style="font-size:15px">Click to watch</a></p>        
         </div>
         <div class="youtube-yt-image">
         <img src="${el.snippet.thumbnails.high.url}" alt="" class="img-source">
@@ -63,7 +66,7 @@ font-size: 15px;
 ">${el.snippet.title}</div>
       <div class="shorts-yt-desc" style="
 font-size: 14px;
-">Jan 23, 2024</div>
+">${date}</div>
 <div>
 `
     
@@ -82,10 +85,15 @@ fetch('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxR
         postText = el.snippet.title.replace(regexp, '');
         let desc = el.snippet.description.substring(0,80);
 
+        const dataEntrada = new Date(el.snippet.publishedAt);
+        const dateFormat = { year: 'numeric', month: 'short', day: 'numeric' };
+        const date = dataEntrada.toLocaleDateString('en-US', dateFormat);
+        
+
 
         div.innerHTML = `<div class="yt-content-information">
         <img class="flower" src="https://cdn130.picsart.com/287898924016211.png?r1024x1024">
-        <p>${desc}...<br><br><a class="button" style="font-size:15px">Click to watch</a></p>
+        <p>${desc}...<br><br><a target="_blank" href="https://www.youtube.com/watch?v=${el.snippet.resourceId.videoId}" class="button" style="font-size:15px">Click to watch</a></p>
         </div>
         <div class="shorts-yt-image">
         <img src="${el.snippet.thumbnails.standard.url}" alt="" class="img-source">
@@ -99,7 +107,7 @@ font-size: 15px;
 <div>
 <div class="shorts-yt-desc" style="
 font-size: 14px;
-">Jan 23, 2024</div>
+">${date}</div>
 `
     
         shorts.appendChild(div)
