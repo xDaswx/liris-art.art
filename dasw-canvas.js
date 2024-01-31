@@ -5,7 +5,7 @@ const ctx = canvas.getContext('2d');
 
 let npcs = [];
 
-let debug = true;
+let debug = false;
 if (debug) {
     canvas.addEventListener('click', (event) => {
         const rect = canvas.getBoundingClientRect();
@@ -388,7 +388,7 @@ function luckytSpeed (user) {
 setInterval(() => {
     let luckyt_guy = npcs[Math.floor((Math.random() * (npcs.length - 1)) + 1)]
     luckytSpeed(luckyt_guy)
-}, 500);
+}, 1500);
 
 // bug fix para facing right
 for (let i = 0; i < npcs.length; i++) {
