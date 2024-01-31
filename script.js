@@ -55,7 +55,7 @@ let lirisArts = [
     {
         title:'Ravena Pixel ✨',
         url:'https://github.com/xDaswx/liris-art.art/blob/main/resources/arts/pixel-purple.png?raw=true',
-        date:'Unknown',
+        date:'01/22/2020',
         reference:'discord'
     },
     {
@@ -65,9 +65,9 @@ let lirisArts = [
         reference:'discord'
     },
     {
-        title:'Beach episode',
-        url:'https://raw.githubusercontent.com/xDaswx/liris-art.art/main/resources/arts/Beach%20ep.png',
-        date:'Dec 07 2020',
+        title:'Ovelha',
+        url: location.origin+'/resources/arts/ovelha.png',
+        date:'09/30/2021',
         reference:'discord'
     },
     {
@@ -79,7 +79,7 @@ let lirisArts = [
     {
         title:'Mayuri Shiina',
         url:'https://raw.githubusercontent.com/xDaswx/liris-art.art/main/resources/arts/Mayuri%20Shiina.png',
-        date:'07/01/2021',
+        date:'02/12/2020',
         reference:'discord'
     },
     {
@@ -91,7 +91,7 @@ let lirisArts = [
     {
         title:'Cool cat',
         url:'https://github.com/xDaswx/liris-art.art/blob/main/resources/arts/cool-cat.png?raw=true',
-        date:'Unknown',
+        date:'12/21/2022',
         reference:'discord'
     },
     {
@@ -127,14 +127,88 @@ let lirisArts = [
     {
         title:'Potan!',
         url:'https://github.com/xDaswx/liris-art.art/blob/main/resources/arts/potan.png?raw=true',
-        date:'Unknown',
+        date:'01/26/2023',
         reference:'discord'
     },
     {
         title:'Raram!',
         url:'https://github.com/xDaswx/liris-art.art/blob/main/resources/arts/ramram.png?raw=true',
-        date:'Unknown',
+        date:'01/31/2023',
         reference:'discord'
+    },
+    {
+        title:'Hold it!',
+        url:location.origin + '/resources/arts/hold_it.png',
+        date:'01/31/2023',
+        reference:'discord'
+    },
+    {
+        title:'Liris and ikinuki',
+        url:location.origin + '/resources/arts/asai.png',
+        date:'01/19/2024',
+        reference:'discord'
+    },
+    {
+        title:'Feather',
+        url:location.origin + '/resources/arts/feather.png',
+        date:'12/08/2023',
+        reference:'discord'
+    },
+    {
+        title:'VRCHAT - Pink',
+        url:location.origin + '/resources/arts/vrchat-pink.png',
+        date:'01/24/2023',
+        reference:'vrchat'
+    }
+    ,
+    {
+        title:'VRCHAT - White',
+        url:location.origin + '/resources/arts/vrchat-white.png',
+        date:'01/24/2023',
+        reference:'vrchat'
+    }
+    ,
+    {
+        title:'VRCHAT - Blue',
+        url:location.origin + '/resources/arts/vrchat-blue.png',
+        date:'01/24/2023',
+        reference:'vrchat'
+    },
+    {
+        title:'VRCHAT - Blue Astro',
+        url:location.origin + '/resources/arts/vrchat-blue-astro.png',
+        date:'01/24/2023',
+        reference:'vrchat'
+    },
+    {
+        title:'Liris OC 2',
+        url:location.origin + '/resources/arts/2-design-oc.png',
+        date:'10/15/2022',
+        reference:'oc'
+    },
+    {
+        title:'Liris OC 1',
+        url:location.origin + '/resources/arts/1-design-oc.png',
+        date:'01/22/2020',
+        reference:'oc'
+    },
+    {
+        title:'Wink Psync',
+        url:location.origin + '/resources/arts/tama2.png',
+        date:'04/22/2023',
+        reference:'oc'
+    },
+    {
+        title:'Purple Girl v1',
+        url:location.origin + '/resources/arts/purple-girl.png',
+        date:'01/05/2020',
+        reference:'oc'
+    },
+    {
+        title:'Purple Girl v2',
+        url:location.origin + '/resources/arts/purple-girl-v2.png',
+        date:'01/10/2021',
+        reference:'oc'
     }
 ]
 
@@ -149,12 +223,24 @@ lirisArts.forEach((art) =>{
         const dateFormat = { year: 'numeric', month: 'short', day: 'numeric' };
         date = dataEntrada.toLocaleDateString('en-US', dateFormat);
     }
+
     div.innerHTML = `
+
+
     <div class="art-image">
-    <img src="${art.url}" alt="" class="img-source">
+    <img  style=" 
+    background-image: url('${art.url}');
+    background-position: var(--x) var(--y);
+    background-repeat: no-repeat;
+    background-size: cover;
+    --x: 0px;
+    --y: 0px;
+    border-radius: 5px;"  alt="" class="img-source">
     </div>
     <div class="art-title">${art.title}</div>
     <div class="art-desc">${date}</div>
+    <a style="margin-top: 10%;
+    scale: 0.9;" class="button" target="_blank" href="https://www.youtube.com/watch?v=9_ozUiWGz-M" style="font-size:15px">Open</a>
     `
 
     arts.appendChild(div)
