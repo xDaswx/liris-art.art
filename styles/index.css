@@ -2,6 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth!important;
+    border: 1px solid red;
+}
+
+
+.button:active {
+    border-bottom: 1px solid currentColor;
 }
 
 @font-face {
@@ -175,7 +182,7 @@ a {
 
 .art-title {
     text-align: left;
-    font-size: 19px;
+    font-size: 15px;
     font-weight: 200;
 }
 
@@ -183,7 +190,7 @@ a {
     height: 150px;
     /* width: 100%; */
     /* max-width: 160px; */
-    background-color: aqua;
+    /* background-color: aqua; */
     border-radius: 5px;
     overflow: hidden;
 }
