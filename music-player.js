@@ -4,24 +4,69 @@ const localhost = location.origin;
 
 
 (function IIFE() {
-    const list = [
+    let list = [
     {
       id: 1,
-      url: localhost+"/resources/sounds/Attack%20Of%20The%20Sloth.mp3",
-      author: "Liris from Mars",
-      title: "Attack Of The Sloth",
-      cover:"https://i1.sndcdn.com/artworks-000191282124-a8vzhc-t50x50.jpg" 
+      url: localhost+"/resources/sounds/cover-idsmile-aideisumairu-toa.mp3",
+      author: "Liris",
+      title: "Cover - Idsmile Aideisumairu Toa",
+      cover:"https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" 
     },
     {
-        id: 2,
-        url:localhost+"/resources/sounds/Estasia Ft Starrlight - My Turn (Official Preview TSR023).mp3",
-        author: "Liris",
-        title: "Liris Ft Starrlight - My Turn (Official Preview TSR023)",
-        cover:"https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" 
-      },
-
+      id: 2,
+      url:localhost+"/resources/sounds/cover-melty-land.mp3",
+      author: "Liris",
+      title: "Cover - Melty Land",
+      cover:"https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" 
+    },
+    {
+      id: 3,
+      url:localhost+"/resources/sounds/cover-muddy-cloud-nio-p.mp3",
+      author: "Liris",
+      title: "Cover - Muddy Cloud",
+      cover:"https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" 
+    },
+    {
+      id: 4,
+      url:localhost+"/resources/sounds/cover-music-music-toa.mp3",
+      author: "Liris",
+      title: "Cover - Music Music Toa",
+      cover:"https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" 
+    },
+    {
+      id: 5,
+      url:localhost+"/resources/sounds/cover-patchwork-staccato-tsugihagisutatsukato-toa.mp3",
+      author: "Liris",
+      title: "Cover - Patchwork Staccato",
+      cover:"https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" 
+    },
+    {
+      id: 6,
+      url:localhost+"/resources/sounds/cover-pt-br-relations-the-idolmatster.mp3",
+      author: "Liris",
+      title: "Cover[PTBR] - Relations",
+      cover:"https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" 
+    },
+    {
+      id: 7,
+      url:localhost+"/resources/sounds/duet-zai-sheng-picon.mp3",
+      author: "Liris ft. Ikinuki",
+      title: "Duet - Zai Shend Picon",
+      cover:"https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" 
+    }
     ];
   
+
+    function embaralharLista(lista) {
+      for (let i = lista.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [lista[i], lista[j]] = [lista[j], lista[i]];
+      }
+      return lista;
+    }
+    
+    list = embaralharLista(list);
+    
   
   
     let currentId = 0;
@@ -252,7 +297,7 @@ const localhost = location.origin;
         ("0" + leftMinute).substr(-2) + ":" + ("0" + leftSecond).substr(-2);
         progressBar.style.transition = "";
       });
-      audio.volume = '0.5'
+      audio.volume = '0.1'
       
       //set loop
       document.getElementById(currentAudio).onended = e => goToNextMusic(e);
