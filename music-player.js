@@ -10,49 +10,49 @@ const localhost = location.origin;
       url: localhost+"/resources/sounds/cover-idsmile-aideisumairu-toa.mp3",
       author: "Liris",
       title: "Cover - Idsmile Aideisumairu Toa",
-      cover:"https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" 
+      cover:location.origin + "/resources/imgs/icon-mplayer.png"
     },
     {
       id: 2,
       url:localhost+"/resources/sounds/cover-melty-land.mp3",
       author: "Liris",
       title: "Cover - Melty Land",
-      cover:"https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" 
+      cover:location.origin + "/resources/imgs/icon-mplayer.png"
     },
     {
       id: 3,
       url:localhost+"/resources/sounds/cover-muddy-cloud-nio-p.mp3",
       author: "Liris",
       title: "Cover - Muddy Cloud",
-      cover:"https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" 
+      cover:location.origin + "/resources/imgs/icon-mplayer.png"
     },
     {
       id: 4,
       url:localhost+"/resources/sounds/cover-music-music-toa.mp3",
       author: "Liris",
       title: "Cover - Music Music Toa",
-      cover:"https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" 
+      cover:location.origin + "/resources/imgs/icon-mplayer.png"
     },
     {
       id: 5,
       url:localhost+"/resources/sounds/cover-patchwork-staccato-tsugihagisutatsukato-toa.mp3",
       author: "Liris",
       title: "Cover - Patchwork Staccato",
-      cover:"https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" 
+      cover:location.origin + "/resources/imgs/icon-mplayer.png"
     },
     {
       id: 6,
       url:localhost+"/resources/sounds/cover-pt-br-relations-the-idolmatster.mp3",
       author: "Liris",
       title: "Cover[PTBR] - Relations",
-      cover:"https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" 
+      cover:location.origin + "/resources/imgs/icon-mplayer.png"
     },
     {
       id: 7,
       url:localhost+"/resources/sounds/duet-zai-sheng-picon.mp3",
       author: "Liris ft. Ikinuki",
       title: "Duet - Zai Shend Picon",
-      cover:"https://th.bing.com/th/id/OIP.uvRTi3x53k5hJMgiETWfPAHaHa?w=600&h=600&rs=1&pid=ImgDetMain" 
+      cover:location.origin + "/resources/imgs/icon-mplayer.png"
     }
     ];
   
@@ -99,17 +99,15 @@ const localhost = location.origin;
   
     function play(e) {
       if (!isPlaying) {
-        // console.log('play');
-        e.target.src =
-        "https://snowleo208.github.io/100-Days-of-Code/7.%20Music%20Player/img/pause.svg";
+        console.log('play');
+        e.target.src =location.origin + "/resources/svgs/pause.svg";;
         e.target.alt = "Pause";
         isPlaying = true;
         document.getElementById(currentAudio).play();
         showTime();
       } else {
-        // console.log('pause');
-        e.target.src =
-        "https://snowleo208.github.io/100-Days-of-Code/7.%20Music%20Player/img/play.svg";
+        console.log('pause');
+        e.target.src = location.origin + "/resources/svgs/pause.svg";;
         e.target.alt = "Play";
         document.getElementById(currentAudio).pause();
         isPlaying = false;
@@ -148,7 +146,7 @@ const localhost = location.origin;
     function nextMusic(mode) {
 
       playBtn.src =
-      "https://snowleo208.github.io/100-Days-of-Code/7.%20Music%20Player/img/play.svg";
+      location.origin + "/resources/svgs/pause.svg";;
       playBtn.alt = "Play";
       document.getElementById(currentAudio).pause();
       isPlaying = false;
@@ -189,8 +187,7 @@ const localhost = location.origin;
     }
   
     function stopMusic() {
-      playBtn.src =
-      "https://snowleo208.github.io/100-Days-of-Code/7.%20Music%20Player/img/play.svg";
+      playBtn.src = location.origin + "/resources/svgs/pause.svg";;
       playBtn.alt = "Play";
       isPlaying = false;
     }
@@ -212,7 +209,6 @@ const localhost = location.origin;
         currentId = newId;
       }
       init();
-      document.getElementById(currentAudio).play();
     }
   
     function loop(e) {
@@ -223,8 +219,7 @@ const localhost = location.origin;
         loopOne = false;
         // console.log('is loop');
         e.target.parentNode.classList.add("is-loop");
-        e.target.src =
-        "https://snowleo208.github.io/100-Days-of-Code/7.%20Music%20Player/img/loop.svg";
+        e.target.src = location.origin + "/resources/svgs/loop.svg";;
         audio.loop = false;
         audio.onended = e => goToNextMusic();
         console.log(isLoop, loopOne);
@@ -233,8 +228,7 @@ const localhost = location.origin;
         isLoop = true;
         loopOne = true;
         e.target.parentNode.classList.add("is-loop");
-        e.target.src =
-        "https://snowleo208.github.io/100-Days-of-Code/7.%20Music%20Player/img/loopone.svg";
+        e.target.src = location.origin + "/resources/svgs/loopone.svg";;
         audio.loop = true;
         audio.onended = e => goToNextMusic();
         console.log(isLoop, loopOne);
@@ -243,8 +237,7 @@ const localhost = location.origin;
         isLoop = false;
         loopOne = false;
         e.target.parentNode.classList.remove("is-loop");
-        e.target.src =
-        "https://snowleo208.github.io/100-Days-of-Code/7.%20Music%20Player/img/loop.svg";
+        e.target.src = location.origin + "/resources/svgs/loop.svg";;
         audio.loop = false;
         audio.onended = e => stopMusic();
         console.log(isLoop, loopOne);
@@ -301,6 +294,12 @@ const localhost = location.origin;
       
       //set loop
       document.getElementById(currentAudio).onended = e => goToNextMusic(e);
+
+      playBtn.src = location.origin + "/resources/svgs/pause.svg";
+      playBtn.alt = "Pause";
+      isPlaying = true;
+      document.getElementById(currentAudio).play();
+      showTime();
     }
   
     playBtn.addEventListener("click", play);
