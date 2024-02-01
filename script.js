@@ -230,17 +230,15 @@ lirisArts.forEach((art) =>{
     <div class="art-image">
     <img  style=" 
     background-image: url('${art.url}');
-    background-position: var(--x) var(--y);
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    --x: 0px;
-    --y: 0px;
     border-radius: 5px;"  alt="" class="img-source">
     </div>
     <div class="art-title">${art.title}</div>
     <div class="art-desc">${date}</div>
     <a style="margin-top: 10%;
-    scale: 0.9;" class="button art-button" target="_blank" style="font-size:15px">Open</a>
+    scale: 0.9;    width: 115px;" class="button art-button" target="_blank" style="font-size:15px">Open</a>
     `
 
     arts.appendChild(div)
@@ -271,11 +269,9 @@ allArtButtons.forEach((el)=> {
 const imgsSourceArt = document.querySelectorAll(".art-panel .img-source");
 imgsSourceArt.forEach((el)=>{
     el.addEventListener("mousemove", (e) => {
-    el.style.setProperty('--x', -e.offsetX + "px");
-    el.style.setProperty('--y', -e.offsetY + "px");
-        el.addEventListener("mouseleave", (e) => {
-    el.style.setProperty('--x', "0px");
-    el.style.setProperty('--y', + "0px");
+    el.style.backgroundPosition = `${-e.offsetX}px ${-e.offsetY}px`
+    el.addEventListener("mouseleave", (e) => {
+        el.style.backgroundPosition = 'center'
 })});
 })
 
