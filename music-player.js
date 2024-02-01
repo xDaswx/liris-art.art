@@ -103,18 +103,21 @@ const localhost = location.origin;
         e.target.src =location.origin + "/resources/svgs/pause.svg";;
         e.target.alt = "Pause";
         isPlaying = true;
+        
         document.getElementById(currentAudio).play();
         showTime();
-      } else {
+      } 
+      else  {
         console.log('pause');
-        e.target.src = location.origin + "/resources/svgs/pause.svg";;
+        e.target.src = location.origin + "/resources/svgs/play.svg";;
         e.target.alt = "Play";
         document.getElementById(currentAudio).pause();
         isPlaying = false;
         clearInterval(timer);
-      }
+      }      
     }
-  
+
+
     function changeBar() {
       const audio = document.getElementById(currentAudio);
       const percentage = (audio.currentTime / audio.duration).toFixed(3);
@@ -147,7 +150,7 @@ const localhost = location.origin;
 
       playBtn.src =
       location.origin + "/resources/svgs/pause.svg";;
-      playBtn.alt = "Play";
+      playBtn.alt = "Pause";
       document.getElementById(currentAudio).pause();
       isPlaying = false;
       clearInterval(timer);
