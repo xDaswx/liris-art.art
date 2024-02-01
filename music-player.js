@@ -295,11 +295,11 @@ const localhost = location.origin;
       //set loop
       document.getElementById(currentAudio).onended = e => goToNextMusic(e);
 
+      document.getElementById(currentAudio).play();
+      showTime();
       playBtn.src = location.origin + "/resources/svgs/pause.svg";
       playBtn.alt = "Pause";
       isPlaying = true;
-      document.getElementById(currentAudio).play();
-      showTime();
     }
   
     playBtn.addEventListener("click", play);
@@ -318,6 +318,6 @@ const localhost = location.origin;
     window.addEventListener('load', function() {
       setTimeout(() => {
         init();
-      }, 1500);
+      }, 5000);
   });
   })();
