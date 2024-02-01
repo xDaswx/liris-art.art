@@ -240,11 +240,45 @@ lirisArts.forEach((art) =>{
     <div class="art-title">${art.title}</div>
     <div class="art-desc">${date}</div>
     <a style="margin-top: 10%;
-    scale: 0.9;" class="button" target="_blank" href="https://www.youtube.com/watch?v=9_ozUiWGz-M" style="font-size:15px">Open</a>
+    scale: 0.9;" class="button art-button" target="_blank" style="font-size:15px">Open</a>
     `
 
     arts.appendChild(div)
 })
+
+
+let allArtButtons = document.querySelectorAll('.art-button')
+
+function showImageViewer(element) {
+    let drawInfo = document.querySelector('.draw-info')
+    drawInfo.style.display = "flex"
+    let img = element.querySelector('img').style.backgroundImage.replace('url("','').replace('")','')
+    drawInfo.querySelector('img').src = img
+    drawInfo.addEventListener('click', ()=> {
+        drawInfo.style.display = "none"
+    })
+}
+
+allArtButtons.forEach((el)=> {
+    el.addEventListener('click', () =>{
+        showImageViewer(el.parentElement)
+    })
+})
+
+
+
+//
+const imgsSourceArt = document.querySelectorAll(".art-panel .img-source");
+imgsSourceArt.forEach((el)=>{
+    el.addEventListener("mousemove", (e) => {
+    el.style.setProperty('--x', -e.offsetX + "px");
+    el.style.setProperty('--y', -e.offsetY + "px");
+        el.addEventListener("mouseleave", (e) => {
+    el.style.setProperty('--x', "0px");
+    el.style.setProperty('--y', + "0px");
+})});
+})
+
 
 
 
