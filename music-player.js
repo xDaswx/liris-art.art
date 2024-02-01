@@ -315,5 +315,9 @@ const localhost = location.origin;
     });
 
   
-    init();
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        init();
+      }, 1500);
+  });
   })();
