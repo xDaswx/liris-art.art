@@ -213,37 +213,43 @@ let lirisArts = [
 ]
 
 
+function convertToDate(dateString) {
+    if (dateString === 'Unknown') {
+        return new Date(0); // desconhecida
+    }
+    return new Date(dateString.replace(',', ''));
+}
 
-lirisArts.forEach((art) =>{
-    let div = document.createElement('div')
-    div.classList.add('art-panel')
-    let date = art.date
-    if (art.date != 'Unknown') {
+// ordenando a lista com base na data, ordem crescente
+lirisArts.sort((a, b) => convertToDate(b.date) - convertToDate(a.date));
+
+lirisArts.forEach((art) => {
+    let div = document.createElement('div');
+    div.classList.add('art-panel');
+    let date = art.date;
+
+    if (art.date !== 'Unknown') {
         const dataEntrada = new Date(art.date);
         const dateFormat = { year: 'numeric', month: 'short', day: 'numeric' };
         date = dataEntrada.toLocaleDateString('en-US', dateFormat);
     }
 
     div.innerHTML = `
+        <div class="art-image">
+            <img style=" 
+                background-image: url('${art.url}');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                border-radius: 5px;" alt="" class="img-source">
+        </div>
+        <div class="art-title">${art.title}</div>
+        <div class="art-desc">${date}</div>
+        <a style="margin-top: 10%; scale: 0.9; width: 115px;" class="button art-button" target="_blank" style="font-size:15px">Open</a>
+    `;
 
-
-    <div class="art-image">
-    <img  style=" 
-    background-image: url('${art.url}');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 5px;"  alt="" class="img-source">
-    </div>
-    <div class="art-title">${art.title}</div>
-    <div class="art-desc">${date}</div>
-    <a style="margin-top: 10%;
-    scale: 0.9;    width: 115px;" class="button art-button" target="_blank" style="font-size:15px">Open</a>
-    `
-
-    arts.appendChild(div)
-})
-
+    arts.appendChild(div);
+});
 
 let allArtButtons = document.querySelectorAll('.art-button')
 
