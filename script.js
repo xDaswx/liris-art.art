@@ -97,7 +97,7 @@ let lirisArts = [
     {
         title:'Kikin',
         url:'https://github.com/xDaswx/liris-art.art/blob/main/resources/arts/kikin.png?raw=true',
-        date:'Unknown',
+        date:'12/26/2022',
         reference:'discord'
     },
     {
@@ -196,7 +196,7 @@ let lirisArts = [
         title:'Wink Psync',
         url:location.origin + '/resources/arts/tama2.png',
         date:'04/22/2023',
-        reference:'oc'
+        reference:'discord'
     },
     {
         title:'Purple Flower Girl v1',
@@ -209,6 +209,12 @@ let lirisArts = [
         url:location.origin + '/resources/arts/purple-girl-v2.png',
         date:'05/16/2022',
         reference:'oc'
+    },
+    {
+        title:'Kohane',
+        url:location.origin + '/resources/arts/Kohane.png',
+        date:'07/27/2022',
+        reference:'discord'
     }
 ]
 
