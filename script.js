@@ -73,7 +73,7 @@ let lirisArts = [
     {
         title:'Liris OC!',
         url:'https://github.com/xDaswx/liris-art.art/blob/main/resources/arts/Liris%20OC.png?raw=true',
-        date:'Unknown',
+        date:'05/11/2023',
         reference:'discord'
     },
     {
@@ -199,15 +199,15 @@ let lirisArts = [
         reference:'oc'
     },
     {
-        title:'Purple Girl v1',
+        title:'Purple Flower Girl v1',
         url:location.origin + '/resources/arts/purple-girl.png',
         date:'01/05/2020',
         reference:'oc'
     },
     {
-        title:'Purple Girl v2',
+        title:'Purple Flower Girl v2',
         url:location.origin + '/resources/arts/purple-girl-v2.png',
-        date:'01/10/2021',
+        date:'05/16/2022',
         reference:'oc'
     }
 ]
