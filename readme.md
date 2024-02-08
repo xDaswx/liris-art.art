@@ -1,5 +1,5 @@
 
-<div style="display:flex;justify-content:center"><img src="https://github.com/xDaswx/liris-art.art/blob/backend/liris.jpg?raw=true" style="border-radius:30px" height=25 >
+<div style="display:flex;justify-content:center">
 <a style="margin-left:5px" href="https://liris-art.art/">Liris-art</a>
 <br> </div>
 
