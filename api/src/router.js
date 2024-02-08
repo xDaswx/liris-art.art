@@ -3,6 +3,8 @@ const drawsController = require('./controllers/drawsController')
 const router = express.Router();
 
 // router.get('/config', drawsController.getAllDrawings)
+
+router.get('/ping', drawsController.ping)
 router.get('/drawings', drawsController.getAllDrawings)
 
 module.exports = router
