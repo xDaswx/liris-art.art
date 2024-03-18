@@ -18,8 +18,8 @@ COPY thumb.png /usr/share/nginx/html/thumb.png
 # ----------------------------------------------------------------
 
 # gzip
-RUN gzip -9 /usr/share/nginx/html/index.html
-RUN gzip -9 /usr/share/nginx/html/dasw-canvas.js
+# RUN gzip -9 /usr/share/nginx/html/index.html
+# RUN gzip -9 /usr/share/nginx/html/dasw-canvas.js
 # RUN gzip -9 /usr/share/nginx/html/styles/*.css
 # RUN gzip -9 /usr/share/nginx/html/resources/sounds/*.mp3
 
