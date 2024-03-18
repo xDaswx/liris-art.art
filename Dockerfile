@@ -16,6 +16,6 @@ RUN sed -i 's/worker_connections.*/worker_connections 1024;/' /etc/nginx/nginx.c
 
 #response buffer limit 
 RUN sed -i 's/output_buffers.*/output_buffers 1 32k;/' /etc/nginx/nginx.conf
-EXPOSE 80
+# EXPOSE 80
 
 # CMD ["nginx", "-g", "daemon off;"]
