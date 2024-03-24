@@ -1,0 +1,379 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth!important;
+    /* border: 1px solid red; */
+}
+
+
+.button:active {
+    border-bottom: 1px solid currentColor;
+}
+
+@font-face {
+    font-family: Dinomouse;
+    src: url("./../resources/fonts/rainyhearts.otf") format("opentype");
+}
+
+header {
+    position: fixed;
+    text-align: center;
+    z-index: 999;
+    width: 100%;
+    background-color: white;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    /* background-color: bisque; */
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content{
+    display: flex;
+    gap: 30px;
+}
+
+a {
+    font-family: 'Dinomouse';
+    font-size: 25px;
+    color: #FF70A6;
+}
+
+.button {
+    display: flex;
+    height: 27px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 2px solid #ff70a6;
+    padding: 0px 10px 0px;
+    border-bottom: 3px solid currentColor;
+    font-size: 20px;
+}
+
+.main {
+    background-color: #cc00ff17;
+    background-image: url('https://media.discordapp.net/attachments/1098275419960135703/1202328008099385424/image.png?ex=65cd0e37&is=65ba9937&hm=07e08abcfa55434820b3dcd404bc0a06b79dd30dedae458d964b9205c73ba653&=&format=webp&quality=lossless&width=840&height=472');
+    background-size: contain;
+    background-repeat: revert-layer;
+}
+
+.about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    text-align: center;
+    height: 240px;
+    font-family: 'Dinomouse';
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 50px;
+}
+
+.things{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Dinomouse';
+    font-size: 15px;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.about h1{
+    font-weight: 400;
+    font-size: 25px;
+    color: #505050;
+}
+.texts{
+    width: 450px; 
+}
+
+.title {
+    width: 100%;
+    max-width: 720px;
+}
+
+.things-title {
+    margin-top: 20px;
+    height: 20px;
+    text-align: left;
+    color: #f495bf;
+}
+
+.title-line{
+    background-color: #f786f8;
+    height: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+.shorts-yt-panel {
+    cursor: pointer;
+    width: 100%;
+    max-width: 171px;
+    background-color: #fff;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.shorts-yt-title {
+    text-align: left;
+    font-size: 19px;
+    font-weight: 200;
+}
+
+.shorts-yt-image {
+    height: 150px;
+    /* width: 100%; */
+    /* max-width: 160px; */
+    background-color: rgb(240, 196, 254);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.youtube-yt-image {
+    height: 90px;
+    background-color: rgb(240, 196, 254);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.shorts-yt-desc{
+    color:#9C8E8E;
+    text-align: center;
+    font-size: 14px;
+}
+.shorts-texts {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    align-items: stretch;
+}
+
+
+.arts, .youtube-shorts, .youtube-videos, .youtube-videos {
+    display: grid;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+.art-panel {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 171px;
+    background-color: #fff;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.art-title {
+    text-align: left;
+    font-size: 15px;
+    font-weight: 200;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.art-image {
+    height: 150px;
+    width: 100%;
+    max-width: 145px;
+    /* background-color: aqua; */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.art-panel .art-image:hover > .img-source {
+    background-size: 500px;
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    cursor: pointer;
+}
+
+
+.art-panel:hover > .art-content-information {
+    
+}
+
+.img-source {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.art-desc{
+    color:#9C8E8E;
+    text-align: left;
+    text-align: center;
+}
+
+
+
+.draw-info{
+    position: fixed;
+    display: none;
+    background-color: #00000069;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+	-webkit-animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.image-info{
+    display: flex;
+    /* height: 433px; */
+    /* background-color: #ff70a63b; */
+    padding: 6px;
+    width: 100%;
+    max-width: 430px;
+    border-radius: 10px;
+    margin: 21px;
+    background-size: contain;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image-info img {
+    /* height: 500px; */
+    border-radius: 10px;
+    width: 100%;
+}
+
+@media screen and (max-width: 530px) {
+    .box {
+        scale: 0.8;
+    }
+}
+
+@media screen and (max-width: 331px) {
+    .header-right, .header-left {
+        display: none;
+    }
+    .texts p {
+        font-size: 12px;
+    }
+    .about h1 {
+        font-size: 20px;
+    }
+    .yt-content-information .button {
+        font-size: 12px !important;
+    }
+}
+
+@media screen and (max-width: 781px) {
+    .things {
+        padding: 0px 18px 0px 18px;
+    }
+}
+
+
+@media (min-width: 300px) {
+  .arts, .youtube-shorts, .youtube-videos { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 550px) {
+    .arts, .youtube-shorts, .youtube-videos { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 630px) {
+  .arts, .youtube-shorts, .youtube-videos { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 661px) {
+    .arts, .youtube-shorts, .youtube-videos { grid-template-columns: repeat(4, 1fr); }
+}
+
+
+/* ----------------------------------------------
+ * Generated by Animista on 2024-1-31 21:8:4
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation fade-in
+ * ----------------------------------------
+ */
+ @-webkit-keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+
+
+#gameCanvas {
+    display: block;
+    margin: auto;
+}
+
+.panel-col {
+    display: flex;
+    position: absolute;
+    height: 20px;
+    background-color: #ffbed6;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0px 0px 0px 3px #FF70A6, 0px 0px 0px 3px #FF70A6;
+    justify-content: flex-end;
+}
+
+
+.panel-col img {
+    height: 100%;
+}
+
+#canvaspanel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+    height: 100%;
+    max-height: 200px;
+    background-image: url('https://64.media.tumblr.com/d88c8a5e447784bd68bca3ae038776b1/158995d0a2f91369-6a/s540x810/c40a7672e21cf98f433c69dd3f5ae22a66427319.jpg');
+    background-position: bottom;
+    background-size: cover;
+    image-rendering: pixelated;
+    box-shadow: 0px 0px 0px 3px #FF70A6, 0px 0px 0px 6px #ffbed6, 0px 0px 0px 9px #FF70A6;
+}

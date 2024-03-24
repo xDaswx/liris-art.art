@@ -1,0 +1,52 @@
+.yt-content-information{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* bottom: 0; */
+    margin: auto;
+    padding: 30px;
+    /* height: 65%; */
+    text-align: center;
+    min-height: 150px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.yt-content-information p {
+    overflow: hidden;
+    max-width: 115px;
+}
+.shorts-yt-panel{
+    transition: all .3s ease-in-out;
+}
+
+
+.flower {
+    height: 30px;
+    position: absolute;
+    left: 0;
+    transform: rotate(331deg);
+    top: 0;
+    margin-left: -15px;
+    margin-top: -11px;
+}
+
+.shorts-yt-panel:hover > .yt-content-information {
+    position: fixed;
+    display: flex;
+    margin-top: -111px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    border: 2px solid #ff9bbc;
+
+
+}
+
+.shorts-yt-panel:hover {
+    transform: scale(1.1);
+
+}
