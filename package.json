@@ -1,8 +1,8 @@
 {
-  "name": "api",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "liris-art",
+  "version": "1.5.0",
+  "description": "This project is a portfolio for Liris and follows the MVC (Model-View-Controller) pattern. It showcases her drawings, videos, and covers all in one place.",
+  "main": "src/server.js",
   "scripts": {
     "build": "npm i",
     "start": "node src/server.js"
