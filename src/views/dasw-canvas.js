@@ -315,7 +315,7 @@ npcs.push(
       spriteHeight: 500,
       facingRight: false,
       image: azu,
-      username: 'Azury', 
+      username: 'Ed', 
     }
 );
 
