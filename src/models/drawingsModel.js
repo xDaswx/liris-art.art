@@ -1,17 +1,11 @@
-const db = require('./dbconnection')
+const mongoose = require('mongoose');
 
-const getAllDrawings = async () => {
-    try{
-        const result = await db.execute('SELECT * FROM drawings')
-        return result
-    }
-    catch (err){
-        return {message:'Internal Error', error: err.message}
-    }
-}
+const drawingSchema = new mongoose.Schema({
+    title: { type: String, required: true },
+    url: { type: String, required: true },
+    date: { type: String, required: true },
+});
 
+const Drawing = mongoose.model('Drawing', drawingSchema);
 
-
-module.exports = {
-    getAllDrawings,
-}
+module.exports = Drawing;
