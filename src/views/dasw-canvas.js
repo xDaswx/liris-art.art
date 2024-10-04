@@ -49,7 +49,6 @@ if (debug) {
             }
               updateInputValues();
         
-            // Exibe o menu
             propertiesDiv.style.display = 'flex';
           } else {
             propertiesDiv.style.display = 'none';
@@ -104,7 +103,6 @@ function drawNpcs() {
     ctx.scale(scaleX, 1);
 
     
-    // Imagem do personagem
     ctx.drawImage(
         npc.image,
         frameX * npc.spriteWidth,
