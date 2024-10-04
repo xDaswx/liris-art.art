@@ -297,12 +297,24 @@ const localhost = location.origin;
       
       //set loop
       document.getElementById(currentAudio).onended = e => goToNextMusic(e);
+      
+      // fix https://stackoverflow.com/questions/64929753/play-failed-because-the-user-didnt-interact-with-the-document-first-issue
+      const promise = document.getElementById(currentAudio).play();
+      
+      if (promise !== undefined) {
+        promise.then(_ => {
+          showTime();
+          playBtn.src = location.origin + "/resources/svgs/pause.svg";
+          playBtn.alt = "Pause";
+          isPlaying = true;
+        }).catch(error => {
+          console.log('erro no promise de play:', error)
+          playBtn.src = location.origin + "/resources/svgs/play.svg";;
+          playBtn.alt = "Play";
+          isPlaying = false;
+        });
+      }
 
-      document.getElementById(currentAudio).play();
-      showTime();
-      playBtn.src = location.origin + "/resources/svgs/pause.svg";
-      playBtn.alt = "Pause";
-      isPlaying = true;
     }
   
     playBtn.addEventListener("click", play);
