@@ -6,6 +6,6 @@ const drawingSchema = new mongoose.Schema({
     date: { type: String, required: true },
 });
 
-const Drawing = mongoose.model('Drawing', drawingSchema);
+const Drawing = mongoose.model('Arts', drawingSchema);
 
 module.exports = Drawing;

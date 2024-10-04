@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Gerenciamento de Artes</title>
+    <style>
+        @font-face {
+            font-family: Dinomouse;
+            src: url("https://liris-art.art/resources/fonts/rainyhearts.otf") format("opentype");
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1050;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+        }
+        .art-id {
+            font-size: 10px;
+            color: #aeaeae;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1 class="text-center">Gerenciamento</h1>
+    <span class="badge rounded-pill text-bg-success" id="artCount">Total de Artes: 0</span>
+
+    <!-- form de novos desenhos -->
+    <form id="artForm">
+        <div class="form-group">
+            <label for="title">Título</label>
+            <input type="text" class="form-control" id="title" required>
+        </div>
+        <div class="form-group">
+            <label for="url">URL da Imagem</label>
+            <input type="url" class="form-control" id="url" required>
+        </div>
+        <div class="form-group">
+            <label for="date">Data</label>
+            <input type="date" class="form-control" id="date" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Adicionar Arte</button>
+    </form>
+
+    <hr>
+
+
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Lista de Artes
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <h4>Pesquisa</h4>
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Pesquisar por nome da arte" onkeyup="filterArts()">
+                </div>
+
+                <table class="table table-bordered" id="artsTable">
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th style="width: 300px;">Imagem</th>
+                            <th>Data</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="artsContainer">
+                        <!-- artes aqui -->
+                    </tbody>
+                </table>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Gatinhos personagens objetos
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <button class="btn btn-primary mb-3" onclick="openAddModalGatin()">Adicionar Gatinho</button>
+
+                <div id="gatinhosContainer">
+                    <!-- lista de artes animadas ou gatos pixel será exibida aqui -->
+                </div>
+                </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                teste
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                isso aqui é para depois
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+</div>
+
+
+<!-- modal de adicionar/editar pixel art frames -->
+<div class="modal fade" id="gatinhoModal" tabindex="-1" aria-labelledby="gatinhoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="gatinhoModalLabel">Adicionar/Editar Gatinho</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="gatinhoForm">
+                    <div class="mb-3">
+                        <label for="gatinhoUsername" class="form-label">Nome do Gatinho</label>
+                        <input type="text" class="form-control" id="gatinhoUsername" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gatinhoImage" class="form-label">Imagem</label>
+                        <input type="text" class="form-control" id="gatinhoImage" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gatinhoX" class="form-label">Posição X</label>
+                        <input type="number" class="form-control" id="gatinhoX" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gatinhoY" class="form-label">Posição Y</label>
+                        <input type="number" class="form-control" id="gatinhoY" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gatinhoSize" class="form-label">Tamanho</label>
+                        <input type="number" class="form-control" id="gatinhoSize" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gatinhoSpeed" class="form-label">Velocidade</label>
+                        <input type="number" step="0.1" class="form-control" id="gatinhoSpeed" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gatinhoDirection" class="form-label">Direção</label>
+                        <select class="form-control" id="gatinhoDirection" required>
+                            <option value="left">left</option>
+                            <option value="right">right</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gatinhoFrameIndex" class="form-label">Índice de Frame</label>
+                        <input type="number" class="form-control" id="gatinhoFrameIndex" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gatinhoFramesPerRow" class="form-label">Frames por Linha</label>
+                        <input type="number" class="form-control" id="gatinhoFramesPerRow" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gatinhoFrameRate" class="form-label">Taxa de Frames</label>
+                        <input type="number" class="form-control" id="gatinhoFrameRate" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gatinhoFrameCount" class="form-label">Contagem de Frames</label>
+                        <input type="number" class="form-control" id="gatinhoFrameCount" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gatinhoSpriteWidth" class="form-label">Largura do Sprite</label>
+                        <input type="number" class="form-control" id="gatinhoSpriteWidth" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gatinhoSpriteHeight" class="form-label">Altura do Sprite</label>
+                        <input type="number" class="form-control" id="gatinhoSpriteHeight" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gatinhoFacingRight" class="form-label">Está Virado para a Direita?</label>
+                        <select class="form-control" id="gatinhoFacingRight" required>
+                            <option value="true">Sim</option>
+                            <option value="false">Não</option>
+                        </select>
+                    </div>
+                    <input type="hidden" id="gatinhoId">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal de confirmação para pixel -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Remover pixelart do canvas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Tem certeza que deseja remover a pixelart do canvas <strong id="deleteGatinhoName"></strong>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" onclick="deleteGatinho()">Remover</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- modal para confirmação de ações -->
+<div class="modal fade" id="confirmActionModal" tabindex="-1" role="dialog" aria-labelledby="confirmActionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmActionModalLabel">Confirmação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                
+            </div>
+            <div class="modal-body" id="confirmActionMessage">
+                Você deseja <span id="actionType"></span> a arte "<span id="artName"></span>"?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="confirmActionButton">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal de edit -->
+<div class="modal fade" id="editArtModal" tabindex="-1" role="dialog" aria-labelledby="editArtModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editArtModalLabel">Editar Arte</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+            </div>
+            <div class="modal-body">
+                <form id="editArtForm">
+                    <div class="form-group">
+                        <label for="editTitle">Título</label>
+                        <input type="text" class="form-control" id="editTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editUrl">URL da Imagem</label>
+                        <input type="url" class="form-control" id="editUrl" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editDate">Data</label>
+                        <input type="date" class="form-control" id="editDate" required>
+                    </div>
+                    <input type="hidden" id="editArtId">
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit"  class="btn btn-primary">Salvar Alterações</button>
+                      </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- toast -->
+<div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="mr-auto" id="toastTitle">Título</strong>
+        <small id="toastTime">Agora</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body" id="toastMessage">Mensagem</div>
+</div>
+
+<script>
+    const apiUrl = '/drawings';
+    let actionType = '';
+    let currentArtId = '';
+    const formatDateToMMDDYYYY = (dateString) => {
+
+        const date = new Date(dateString);
+        date.toLocaleDateString('en-US')
+        let isostring = date.toISOString().split('T')[0].split('-');
+
+        let formated = `${isostring[1]}/${isostring[2]}/${isostring[0]}`
+        return formated;
+    };
+
+
+    const updateArtCount = (count) => {
+        document.getElementById('artCount').innerText = `Total de Artes: ${count}`;
+    };
+
+    const loadArts = async () => {
+        const response = await fetch(apiUrl);
+        const arts = await response.json();
+        const artsContainer = document.getElementById('artsContainer');
+        artsContainer.innerHTML = '';
+
+        arts.forEach(art => {
+            let date = art.date;
+            if (art.date !== 'Unknown') {
+                const formatedDate = new Date(art.date);
+                date = formatedDate.toISOString().split('T')[0];
+            }
+
+            //const dateObj = new Date(art.date);
+            //const formattedDate = dateObj.toLocaleDateString('pt-BR', {
+            //    day: '2-digit',
+            //    month: '2-digit',
+            //    year: 'numeric'
+            //});
+
+            const row = document.createElement('tr');
+
+            const titleCell = document.createElement('td');
+            titleCell.style.fontSize = '11px';
+            titleCell.style.width = '200px';
+            const titleText = document.createTextNode(art.title);
+            const artIdText = document.createElement('p');
+            artIdText.classList.add('art-id');
+            artIdText.innerText = `(${art._id})`;
+            titleCell.appendChild(titleText);
+            titleCell.appendChild(artIdText);
+
+
+            const imageCell = document.createElement('td');
+            imageCell.style.display = 'flex';
+            imageCell.style.justifyContent = 'center';
+            const image = document.createElement('img');
+            image.src = art.url;
+            image.alt = art.title;
+            image.style.maxHeight = '100px';
+            imageCell.appendChild(image);
+
+            const dateCell = document.createElement('td');
+            dateCell.innerText = date;
+
+            const actionsCell = document.createElement('td');
+
+            const buttonwarning = document.createElement('button');
+            buttonwarning.classList.add('btn', 'btn-warning');
+            buttonwarning.onclick = () => {
+                openEditModal(art._id, art.title, art.url, art.date);
+            };
+            buttonwarning.innerText = 'Editar';
+            actionsCell.appendChild(buttonwarning);
+
+            const deleteButton = document.createElement('button');
+            deleteButton.classList.add('btn', 'btn-danger');
+            deleteButton.onclick = () => {
+                confirmDeleteArt(art._id, art.title);
+            };
+            deleteButton.innerText = 'Remover';
+            actionsCell.appendChild(deleteButton);
+
+            row.appendChild(titleCell);
+            row.appendChild(imageCell);
+            row.appendChild(dateCell);
+            row.appendChild(actionsCell);
+
+            artsContainer.appendChild(row);
+        });
+
+        updateArtCount(arts.length);
+    };
+
+    document.getElementById('artForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const title = document.getElementById('title').value;
+        const url = document.getElementById('url').value;
+        const date = document.getElementById('date').value;
+
+        actionType = 'adicionar';
+        currentArtId = ''; 
+        //document.getElementById('artName').innerText = title;
+        document.getElementById('confirmActionMessage').innerText = `Você deseja adicionar a arte "${title}"?`;
+        $('#confirmActionModal').modal('show');
+    });
+
+    // Função para abrir o modal de confirmação de exclusão
+    const confirmDeleteArt = (id, title) => {
+        actionType = 'deletar';
+        currentArtId = id;
+        //document.getElementById('artName').innerText = title;
+        document.getElementById('confirmActionMessage').innerText = `Você deseja remover a arte "${title}"?`;
+        $('#confirmActionModal').modal('show');
+    };
+
+    const confirmarEdição = (id, title) => {
+        actionType = 'editar';
+        currentArtId = id;
+        //document.getElementById('artName').innerText = title;
+        document.getElementById('confirmActionMessage').innerText = `Você deseja editar a arte "${title}"?`;
+        $('#confirmActionModal').modal('show');
+    };
+
+
+    //const formatDateString = (dateString) => {
+    //    // Supondo que a data esteja no formato "dd/mm/yyyy"
+    //    const [day, month, year] = dateString.split('/');
+    //    return `${year}-${month}-${day}`; 
+    //};
+
+    //função para abrir o modal de edição de arte
+    const openEditModal = (id, title, url, date) => {
+        //date = new Date(date).toLocaleString("en-US", {year: 'numeric', month: '2-digit', day: '2-digit', timeZone: "America/New_York"})
+        document.getElementById('editArtId').value = id;
+        document.getElementById('editTitle').value = title;
+        document.getElementById('editUrl').value = url;
+
+        console.log('data que veio da funçlão', date)
+
+        const dateObj = new Date(date);
+        //const formattedDateString = formatDateString(dateObj);
+
+        if (isNaN(dateObj.getTime())) {
+            console.error("Data inválida: ", dateObj);
+            return;
+        }
+        console.log('modal data', dateObj)
+        const formattedDate = dateObj.toISOString().split('T')[0];
+        document.getElementById('editDate').value = formattedDate; 
+        $('#editArtModal').modal('show'); 
+    };
+
+    // Confirma a ação após o modal de confirmação
+    document.getElementById('confirmActionButton').addEventListener('click', async () => {
+        if (actionType === 'adicionar') {
+            const title = document.getElementById('title').value;
+            const url = document.getElementById('url').value;
+            const date = document.getElementById('date').value;
+
+            const formattedDate = formatDateToMMDDYYYY(date);
+            const response = await fetch(apiUrl + '/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ title, url, date: formattedDate })
+            });
+
+            if (response.ok) {
+                loadArts();
+                $('#confirmActionModal').modal('hide'); 
+                showToast('Arte adicionada com sucesso!', 'success');
+            } else {
+                $('#confirmActionModal').modal('hide'); 
+                if (response.status == 403) {
+                    location.href = '/login'
+                }
+                showToast('Erro ao adicionar arte.', 'danger');
+            }
+        } else if (actionType === 'deletar') {
+            const response = await fetch(`${apiUrl}/${currentArtId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+
+            if (response.ok) {
+                loadArts(); 
+                $('#confirmActionModal').modal('hide');
+                showToast('Arte removida com sucesso!', 'success');
+            } else {
+                $('#confirmActionModal').modal('hide'); 
+                if (response.status == 403) {
+                    location.href = '/login'
+                }
+                showToast('Erro ao remover arte.', 'danger');
+            }
+        }
+    });
+
+    //função editar arte
+    document.getElementById('editArtForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const id = document.getElementById('editArtId').value;
+        const title = document.getElementById('editTitle').value;
+        const url = document.getElementById('editUrl').value;
+        const date = document.getElementById('editDate').value;
+
+        const formattedDate = formatDateToMMDDYYYY(date);
+
+        
+        const response = await fetch(apiUrl + '/edit', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id, title, url, date: formattedDate }) 
+        });
+
+        if (response.ok) {
+            loadArts(); // Recarregar as artes
+            $('#editArtModal').modal('hide'); // Ocultar o modal
+            showToast('Arte editada com sucesso!', 'success');
+        } else {
+            $('#editArtModal').modal('hide'); // Ocultar o modal
+            if (response.status == 403) {
+                location.href = '/login'
+            }
+            showToast('Erro ao editar arte.', 'danger');
+        }
+        
+        //if (confirm('Tem certeza que deseja salvar as alterações?')) {
+        //}
+    });
+
+    const filterArts = () => {
+        const input = document.getElementById('searchInput');
+        const filter = input.value.toLowerCase();
+        const rows = document.querySelectorAll('#artsContainer tr');
+
+        rows.forEach(row => {
+            const title = row.cells[0].textContent.toLowerCase();
+            row.style.display = title.includes(filter) ? '' : 'none';
+        });
+    };
+
+    const showToast = (message, type) => {
+        document.getElementById('toastTitle').innerText = type === 'success' ? 'Sucesso' : 'Erro';
+        document.getElementById('toastMessage').innerText = message;
+        $('#toast').toast({ delay: 3000 });
+        $('#toast').toast('show');
+    };
+
+    loadArts();
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script src="dasw-canvas-panel.js"></script>
+</body>
+
+</html>
