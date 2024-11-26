@@ -17,8 +17,9 @@ This project is a portfolio for Liris and follows the MVC (Model-View-Controller
   - MySQL was the chosen database to store and manage the website's data.
   - API endpoints: `/drawings` to access the drawings and `/ping` to test the server connection.
 
-- **phpMyAdmin**:
-  - phpMyAdmin interface to manage the MySQL database.
+- **Db**:
+  - mongoDB Database
+  - Admin interface: `/gerenciamento`
 
 ## Local Setup and Execution
 
